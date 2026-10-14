@@ -205,13 +205,14 @@
 		try {
 			const result = await api('GET', '/api/jobs/' + job.id + '/preview')
 			const total = result.files + result.directories
-			previewBox.replaceChildren(
+			// replaceChildren() renders null as the text "null", so drop empty entries.
+			previewBox.replaceChildren(...[
 				el('h3', {}, 'Preview: ' + job.name),
 				el('p', {}, result.files + ' files and ' + result.directories + ' folders, ' + formatBytes(result.bytes) + ' before compression.'),
 				result.missing.length ? el('p', { class: 'tb-error' }, result.missing.length + ' tagged item(s) cannot be reached: ' + result.missing.map((m) => m.reason).join('; ')) : null,
 				el('pre', {}, result.sample.join('\n') + (total > result.sample.length ? '\n… and ' + (total - result.sample.length) + ' more' : '')),
 				el('button', { type: 'button', onclick: () => { previewBox.hidden = true } }, 'Close'),
-			)
+			].filter(Boolean))
 		} catch (e) {
 			previewBox.replaceChildren(el('p', { class: 'tb-error' }, e.message))
 		}
