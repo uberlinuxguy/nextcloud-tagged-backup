@@ -1,0 +1,16 @@
+#!/bin/sh
+# Adds trailers to every commit message:
+#   - the AI-assistance trailer, unless an Assisted-by line is already present
+#   - a Signed-off-by for the committer (same as `git commit -s`), unless that
+#     exact sign-off is already present
+# Enable once per clone with:
+#   git config core.hooksPath .githooks
+set -e
+
+ASSISTED_BY="Assisted-by: Claude:claude-opus-5-5"
+
+# "Name <email> timestamp tz" -> "Name <email>"
+SIGNOFF="Signed-off-by: $(git var GIT_COMMITTER_IDENT | sed 's/>.*/>/')"
+
+git interpret-trailers --in-place --if-exists doNothing --trailer "$ASSISTED_BY" "$1"
+git interpret-trailers --in-place --if-exists addIfDifferent --trailer "$SIGNOFF" "$1"
