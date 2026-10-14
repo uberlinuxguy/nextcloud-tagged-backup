@@ -210,6 +210,10 @@ php tests/destination_fake_test.php /path/to/nextcloud
 
 The S3 code was tested end to end against SeaweedFS, which enforces SigV4. The Google and Microsoft OAuth flow was tested in a browser up to the real token endpoint. The Drive and OneDrive upload APIs were tested against the fakes above, not against live accounts.
 
+## Privacy and terms
+
+The app runs entirely on your Nextcloud server and sends nothing to its developer. Google Drive access is limited to files the app creates. See the [privacy policy](PRIVACY.md) and [terms of service](TERMS.md).
+
 ## License
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
