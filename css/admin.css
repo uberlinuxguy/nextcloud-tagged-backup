@@ -1,0 +1,164 @@
+#tagged-backup .tb-table-wrap {
+	overflow-x: auto;
+	margin: 12px 0;
+}
+#tagged-backup .tb-jobs {
+	width: 100%;
+}
+#tagged-backup .tb-jobs tbody tr {
+	border-top: 1px solid var(--color-border);
+}
+#tagged-backup .tb-jobs th,
+#tagged-backup .tb-jobs td {
+	padding: 8px 10px 8px 0;
+	vertical-align: top;
+	text-align: start;
+}
+#tagged-backup .tb-jobs th {
+	color: var(--color-text-maxcontrast);
+	font-weight: normal;
+}
+#tagged-backup .tb-disabled td {
+	color: var(--color-text-maxcontrast);
+}
+#tagged-backup .tb-empty {
+	color: var(--color-text-maxcontrast);
+}
+#tagged-backup .tb-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	min-width: 220px;
+	max-width: 340px;
+}
+#tagged-backup .tb-actions button {
+	margin: 0;
+	min-height: 30px;
+	padding: 2px 10px;
+	font-size: 0.9em;
+}
+#tagged-backup .tb-danger {
+	color: var(--color-error-text, var(--color-error));
+}
+#tagged-backup .tb-sub {
+	color: var(--color-text-maxcontrast);
+	font-size: 0.9em;
+}
+#tagged-backup .tb-message {
+	max-width: 300px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#tagged-backup .tb-badge {
+	display: inline-block;
+	margin-inline-end: 6px;
+	padding: 0 6px;
+	border-radius: var(--border-radius-pill, 10px);
+	background: var(--color-background-dark);
+	font-size: 0.85em;
+}
+#tagged-backup .tb-status {
+	font-weight: bold;
+}
+#tagged-backup .tb-success { color: var(--color-success-text, var(--color-success)); }
+#tagged-backup .tb-partial { color: var(--color-warning-text, var(--color-warning)); }
+#tagged-backup .tb-failed { color: var(--color-error-text, var(--color-error)); }
+#tagged-backup .tb-running { color: var(--color-primary-element-text-dark, var(--color-primary-element)); }
+#tagged-backup .tb-notice {
+	margin: 12px 0;
+	padding: 8px 12px;
+	border-radius: var(--border-radius-large, 8px);
+	border-inline-start: 4px solid;
+	background: var(--color-background-hover);
+}
+#tagged-backup .tb-notice.tb-ok { border-color: var(--color-success); }
+#tagged-backup .tb-notice.tb-error { border-color: var(--color-error); }
+#tagged-backup p.tb-error { color: var(--color-error-text, var(--color-error)); }
+#tagged-backup .tb-form,
+#tagged-backup .tb-preview {
+	max-width: 720px;
+	margin-top: 20px;
+	padding: 16px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-large, 8px);
+}
+#tagged-backup .tb-field {
+	margin: 10px 0;
+}
+#tagged-backup .tb-field > label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+#tagged-backup .tb-field.tb-check > label {
+	flex-direction: row;
+	align-items: center;
+}
+#tagged-backup .tb-field input[type=text],
+#tagged-backup .tb-field input[type=password],
+#tagged-backup .tb-field input[type=number],
+#tagged-backup .tb-field select,
+#tagged-backup .tb-field textarea {
+	width: 100%;
+	max-width: 520px;
+}
+#tagged-backup .tb-field textarea {
+	font-family: var(--font-face-monospace, monospace);
+}
+#tagged-backup .tb-hint {
+	color: var(--color-text-maxcontrast);
+	margin: 2px 0 0;
+	max-width: 620px;
+}
+#tagged-backup .tb-destination {
+	margin-inline-start: 12px;
+	padding-inline-start: 12px;
+	border-inline-start: 2px solid var(--color-border);
+}
+#tagged-backup .tb-buttons {
+	margin-top: 16px;
+}
+#tagged-backup .tb-preview pre {
+	max-height: 320px;
+	overflow: auto;
+	padding: 8px;
+	background: var(--color-background-dark);
+	white-space: pre-wrap;
+}
+#tagged-backup .tb-label {
+	display: block;
+	margin-bottom: 4px;
+}
+#tagged-backup .tb-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 16px;
+	max-width: 620px;
+}
+#tagged-backup .tb-tags label {
+	display: inline-flex;
+	align-items: center;
+}
+#tagged-backup .tb-user-code {
+	margin: 8px 0;
+	font-family: var(--font-face-monospace, monospace);
+	font-size: 1.8em;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+}
+#tagged-backup .tb-advanced {
+	margin: 10px 0;
+}
+#tagged-backup .tb-advanced summary {
+	cursor: pointer;
+	color: var(--color-text-maxcontrast);
+}
+#tagged-backup .tb-warning {
+	max-width: 620px;
+	margin: 4px 0 10px;
+	padding: 8px 12px;
+	border-inline-start: 4px solid var(--color-warning);
+	border-radius: var(--border-radius-large, 8px);
+	background: var(--color-background-hover);
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>tagged_backup</id>
+	<name>Tagged Backup</name>
+	<summary>Back up files and folders carrying a system tag to S3, Google Drive or OneDrive</summary>
+	<description><![CDATA[Tagged Backup finds every file and folder that carries one of a set of collaborative (system) tags,
+packs them into a tar archive with a JSON manifest (paths, sizes, modification times, SHA-256 checksums, tags),
+optionally compresses it (gzip or bzip2) and encrypts it with [age](https://age-encryption.org) public keys,
+and uploads the result to an S3 compatible bucket, Google Drive or Microsoft OneDrive.
+
+Backups run on a schedule via Nextcloud background jobs, on demand from the admin settings page, or with `occ tagged-backup:run`.
+Old backups can be pruned automatically.]]></description>
+	<version>1.0.0</version>
+	<licence>Apache-2.0</licence>
+	<author mail="jasonw@tulg.org">Jason Williams</author>
+	<namespace>TaggedBackup</namespace>
+	<category>files</category>
+	<category>tools</category>
+	<website>https://github.com/uberlinuxguy/nextcloud-tagged-backup</website>
+	<bugs>https://github.com/uberlinuxguy/nextcloud-tagged-backup/issues</bugs>
+	<repository type="git">https://github.com/uberlinuxguy/nextcloud-tagged-backup.git</repository>
+	<dependencies>
+		<php min-version="8.1"/>
+		<lib>sodium</lib>
+		<lib>zlib</lib>
+		<nextcloud min-version="30" max-version="35"/>
+	</dependencies>
+	<background-jobs>
+		<job>OCA\TaggedBackup\BackgroundJob\SchedulerJob</job>
+	</background-jobs>
+	<commands>
+		<command>OCA\TaggedBackup\Command\ListJobs</command>
+		<command>OCA\TaggedBackup\Command\RunJob</command>
+		<command>OCA\TaggedBackup\Command\Preview</command>
+	</commands>
+	<settings>
+		<admin>OCA\TaggedBackup\Settings\Admin</admin>
+		<admin-section>OCA\TaggedBackup\Settings\AdminSection</admin-section>
+	</settings>
+</info>
